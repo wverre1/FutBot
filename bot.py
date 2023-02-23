@@ -249,7 +249,7 @@ def final_print(date_to_choose):
 
         league_in += 1
         ct, h_team, h_score, a_team, a_score, time = 0, 1, 2, 3, 4, 5
-    schedulemessage+= "\nQuery Time:" + (datetime.now()-datetime.timedelta(hours=5)).strftime("%m/%d/%Y, %H:%M:%S")
+    schedulemessage+= "\nQuery Time:" + (mydatetime.now()-mydatetime.timedelta(hours=5)).strftime("%m/%d/%Y, %H:%M:%S")
     return schedulemessage
             
 
