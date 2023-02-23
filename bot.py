@@ -281,7 +281,7 @@ def receive():
             print(message)
             send(message)
         
-        if data['text'].contains('/futball') and data['text'].contains('match'):
+        if '/futball' in data['text'] and 'match' in data['text']:
             message=data['name'] + ' pinged me!'
             print(getfutballmatches())
             send(getfutballmatches())
