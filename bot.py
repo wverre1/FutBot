@@ -92,7 +92,7 @@ def choose_date():
     while print_once:
 
         print(' ')
-        date_to_look = mydate.today().strftime("%Y-%m-%d")
+        date_to_look = mydate.today().strftime("%Y-%m-%d")-timedelta(hours=5)
 
         match = re.match("[0-9]{4}-[0-9]{2}-[0-9]{2}", date_to_look)
         is_match = bool(match) # Check if date was entered wrong
@@ -227,19 +227,19 @@ def final_print(date_to_choose):
     schedulemessage=""
     year, month, day = (int(x) for x in date_to_choose.split('-'))    
     ans = datetime.date(year, month, day)
-    schedulemessage+=('Matchups on {}, {} {}, {}:'.format(ans.strftime("%A"),ans.strftime("%B"),ans.strftime("%d"),ans.strftime("%Y")))+"\t\t"
+    schedulemessage+=('Matchups on {}, {} {}, {}:'.format(ans.strftime("%A"),ans.strftime("%B"),ans.strftime("%d"),ans.strftime("%Y")))+"\n\n"
     
     no_games = all(len(l) == 0 for l in data)
     if (no_games): # If all the lists are empty
-        print('NO GAMES ON THIS DATE')
+        schedulemessage='NO GAMES ON THIS DATE'
 
     for i in data:
         if i[0]=="English Premier League" or i[0]=="Champions League":
-            schedulemessage+=(i[0])+"\t"
-            schedulemessage+=('-'*25)+"\t"
+            schedulemessage+=(i[0])+"\n"
+            schedulemessage+=('-'*25)+"\n"
 
             while ct < len(data[league_in][1:]) // 5:
-                schedulemessage+="{:<25} {:^5} {:<25} {:^3} | {:>7}\n".format(i[h_team], i[h_score], i[a_team], i[a_score], i[time])+"\t"
+                schedulemessage+="{:<25} {:^5} {:<25} {:^3} | {:>7}\n".format(i[h_team], i[h_score], i[a_team], i[a_score], i[time])+"\n"
                 
                 ct += 1
                 h_team += 5
