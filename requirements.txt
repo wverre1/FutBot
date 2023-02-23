@@ -3,7 +3,6 @@ requests
 gunicorn
 bs4
 datetime
-os
 pytz
 re
 time
