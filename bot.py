@@ -92,7 +92,7 @@ def choose_date():
 
         print(' ')
         ET = pytz.timezone('US/Eastern')
-        date_to_look = mytime.now(ET).strftime("%Y-%m-%d")
+        date_to_look = mydatetime.now(ET).strftime("%Y-%m-%d")
 
         match = re.match("[0-9]{4}-[0-9]{2}-[0-9]{2}", date_to_look)
         is_match = bool(match) # Check if date was entered wrong
@@ -153,8 +153,8 @@ def change_time(date_to_choose):
     data = scraping(date_to_choose) # Function call
 	
     ET = pytz.timezone('US/Eastern')
-    curr_time = mytime.now(ET)
-    curr_clock = mytime.strftime("%Y:%m:%d %H:%M:%S %Z %z", curr_time)
+    curr_time = mydatetime.now(ET)
+    curr_clock = curr_time.strftime("%Y:%m:%d %H:%M:%S %Z %z")
 
     IST = pytz.timezone('Europe/London')
     datetime_ist = mydatetime.now(IST)
