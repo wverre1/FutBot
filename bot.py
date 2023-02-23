@@ -190,7 +190,7 @@ def change_time(date_to_choose):
                     val = "0" + str(int(item[:item.index(":")]) -24) + ":" + str(int(item[item.index(":") + 1:])) + " +1"
 
                 if val[val.index(":") + 1:] == '0':
-                    val = i + '0' # Add a second '0' to minutes value is there is only one
+                    val = val + '0' # Add a second '0' to minutes value is there is only one
 
                 try:
                     # If minutes value is between 1-9, add a '0' so that it reads '11:07' rather than
