@@ -47,8 +47,7 @@ def clean_data(list):
         else:
             item
 
-    leagues = (['English Premier League', 'Spanish La Liga',  'German Bundesliga',  'Italian Serie A', 
-            'French Ligue 1', 'Champions League'])
+    leagues = (['English Premier League', 'Champions League','EFL Cup','The FA Cup','Europa League'])
     
     list = [i[-145:] for i in list]
     left, right = '">', '</'
@@ -224,32 +223,33 @@ def final_print(date_to_choose):
     h_team, h_score, a_team, a_score, time = 1, 2, 3, 4, 5
     
     data = change_time(date_to_choose)
-    schedulemessage=""
+    
     year, month, day = (int(x) for x in date_to_choose.split('-'))    
     ans = datetime.date(year, month, day)
-    schedulemessage+=('Matchups on {}, {} {}, {}:'.format(ans.strftime("%A"),ans.strftime("%B"),ans.strftime("%d"),ans.strftime("%Y")))+"\n\n"
-    
-    no_games = all(len(l) == 0 for l in data)
+	no_games = all(len(l) == 0 for l in data)
     if (no_games): # If all the lists are empty
-        schedulemessage=('No Matchups on {}, {} {}, {}:'.format(ans.strftime("%A"),ans.strftime("%B"),ans.strftime("%d"),ans.strftime("%Y")))+"\n\n"
+        schedulemessage=('No Matchups on {}, {} {}, {}'.format(ans.strftime("%A"),ans.strftime("%B"),ans.strftime("%d"),ans.strftime("%Y")))+"\n\n"
+		
+    schedulemessage=('Matchups on {}, {} {}, {}:'.format(ans.strftime("%A"),ans.strftime("%B"),ans.strftime("%d"),ans.strftime("%Y")))+"\n\n"
+	schedulemessage+="Times in ET\n"
 
     for i in data:
-        if i[0]=="English Premier League" or i[0]=="Champions League" or i[0]=="Europa League":
-            schedulemessage+=(i[0])+"\n"
-            schedulemessage+=('-'*25)+"\n"
+		schedulemessage+=(i[0])+"\n"
+		schedulemessage+=('-'*25)+"\n"
 
-            while ct < len(data[league_in][1:]) // 5:
-                schedulemessage+="{:<25} {:^5} {:<25} {:^3} | {:>7}\n".format(i[h_team], i[h_score], i[a_team], i[a_score], i[time])+"\n"
-                
-                ct += 1
-                h_team += 5
-                h_score += 5
-                a_team += 5
-                a_score += 5
-                time += 5
+		while ct < len(data[league_in][1:]) // 5:
+			schedulemessage+="{:<25} {:^5} {:<25} {:^3} | {:>7}\n".format(i[h_team], i[h_score], i[a_team], i[a_score], i[time])+"\n"
+
+			ct += 1
+			h_team += 5
+			h_score += 5
+			a_team += 5
+			a_score += 5
+			time += 5
 
         league_in += 1
         ct, h_team, h_score, a_team, a_score, time = 0, 1, 2, 3, 4, 5
+	schedulemessage+= "\nQuery Time:" + mydate.today()-datetime.timedelta(hours=5)
     return schedulemessage
             
 
