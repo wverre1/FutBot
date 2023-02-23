@@ -231,7 +231,7 @@ def final_print(date_to_choose):
     
     no_games = all(len(l) == 0 for l in data)
     if (no_games): # If all the lists are empty
-        schedulemessage='NO GAMES ON THIS DATE'
+        schedulemessage='No Matchups on {}, {} {}, {}:'.format(ans.strftime("%A"),ans.strftime("%B"),ans.strftime("%d"),ans.strftime("%Y")))+"\n\n"
 
     for i in data:
         if i[0]=="English Premier League" or i[0]=="Champions League":
