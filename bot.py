@@ -92,7 +92,7 @@ def choose_date():
     while print_once:
 
         print(' ')
-        date_to_look = mydate.today().strftime("%Y-%m-%d")-timedelta(hours=5)
+        date_to_look = (datetime.date.today()-datetime.timedelta(hours=5)).strftime("%Y-%m-%d")
 
         match = re.match("[0-9]{4}-[0-9]{2}-[0-9]{2}", date_to_look)
         is_match = bool(match) # Check if date was entered wrong
