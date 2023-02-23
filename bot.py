@@ -224,10 +224,10 @@ def final_print(date_to_choose):
     h_team, h_score, a_team, a_score, time = 1, 2, 3, 4, 5
     
     data = change_time(date_to_choose)
-    msg=""
+    schedulemessage=""
     year, month, day = (int(x) for x in date_to_choose.split('-'))    
     ans = datetime.date(year, month, day)
-    msg+=('Matchups on {}, {} {}, {}:'.format(ans.strftime("%A"),ans.strftime("%B"),ans.strftime("%d"),ans.strftime("%Y")))+"\n\n"
+    schedulemessage+=('Matchups on {}, {} {}, {}:'.format(ans.strftime("%A"),ans.strftime("%B"),ans.strftime("%d"),ans.strftime("%Y")))+"\n\n"
     
     no_games = all(len(l) == 0 for l in data)
     if (no_games): # If all the lists are empty
@@ -235,11 +235,11 @@ def final_print(date_to_choose):
 
     for i in data:
         if i[0]=="English Premier League" or i[0]=="Champions League":
-            msg+=(i[0])+"\n"
-            msg+=('-'*25)+"\n"
+            schedulemessage+=(i[0])+"\n"
+            schedulemessage+=('-'*25)+"\n"
 
             while ct < len(data[league_in][1:]) // 5:
-                msg+="{:<25} {:^5} {:<25} {:^3} | {:>7}\n".format(i[h_team], i[h_score], i[a_team], i[a_score], i[time])+"\n"
+                schedulemessage+="{:<25} {:^5} {:<25} {:^3} | {:>7}\n".format(i[h_team], i[h_score], i[a_team], i[a_score], i[time])+"\n"
                 
                 ct += 1
                 h_team += 5
@@ -250,7 +250,7 @@ def final_print(date_to_choose):
 
         league_in += 1
         ct, h_team, h_score, a_team, a_score, time = 0, 1, 2, 3, 4, 5
-    return msg
+    return schedulemessage
             
 
 # %%
