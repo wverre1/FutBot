@@ -238,7 +238,7 @@ def final_print(date_to_choose):
         schedulemessage+=('-'*25)+"\n"
 
         while ct < len(data[league_in][1:]) // 5:
-            schedulemessage+="{:<25} {:^5} {:<25} {:^3} | {:>7}\n".format(i[h_team], i[h_score], i[a_team], i[a_score], i[time])+"\n"
+            schedulemessage+="{:^5} {:<25}\n {:^5} {:<25}\n {:<7}\n".format(i[h_score],i[h_team], i[a_score], i[a_team], i[time])+"\n"
 
             ct += 1
             h_team += 5
@@ -249,7 +249,7 @@ def final_print(date_to_choose):
 
         league_in += 1
         ct, h_team, h_score, a_team, a_score, time = 0, 1, 2, 3, 4, 5
-    schedulemessage+= "\nQuery Time:" + (mydate.today()-datetime.timedelta(hours=5)).strftime("%m/%d/%Y, %H:%M:%S")
+    schedulemessage+= "\nQuery Time:" + (datetime.now()-datetime.timedelta(hours=5)).strftime("%m/%d/%Y, %H:%M:%S")
     return schedulemessage
             
 
