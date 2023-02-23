@@ -245,7 +245,7 @@ def final_print(date_to_choose):
         schedulemessage+=('-'*25)+"\n"
 
         while ct < len(data[league_in][1:]) // 5:
-            schedulemessage+="{:<4} {}\n {:<4} {}\n {}\n".format(i[h_score],i[h_team], i[a_score], i[a_team], i[time])+"\n"
+            schedulemessage+="{:<4} {}\n{:<4} {}\n{}\n".format(i[h_score],i[h_team], i[a_score], i[a_team], i[time])+"\n"
 
             ct += 1
             h_team += 5
