@@ -4,5 +4,4 @@ gunicorn
 bs4
 datetime
 pytz
-re
 time
