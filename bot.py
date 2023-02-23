@@ -238,7 +238,7 @@ def final_print(date_to_choose):
         schedulemessage=('No Matchups on {}, {} {}, {}'.format(ans.strftime("%A"),ans.strftime("%B"),ans.strftime("%d"),ans.strftime("%Y")))+"\n\n"
 		
     schedulemessage=('Matchups on {}, {} {}, {}:'.format(ans.strftime("%A"),ans.strftime("%B"),ans.strftime("%d"),ans.strftime("%Y")))+"\n\n"
-    schedulemessage+="Times in ET\n"
+    
 
     for i in data:
         schedulemessage+=(i[0])+"\n"
@@ -256,6 +256,8 @@ def final_print(date_to_choose):
 
         league_in += 1
         ct, h_team, h_score, a_team, a_score, time = 0, 1, 2, 3, 4, 5
+    
+    schedulemessage+="Times in ET\n"
     #schedulemessage+= "\nQuery Time:" + (mydatetime.now()-mydatetime.timedelta(hours=5)).strftime("%m/%d/%Y, %H:%M:%S")
     return schedulemessage
             
