@@ -289,7 +289,11 @@ def receive():
             message=data['name'] + ' pinged me!'
             send(message)
         
-        if 'match' in data['text'] and 'day' in data['text']:
+        if 'match' in data['text'].lower() and 'day' in data['text'].lower():
+            print(getfutballmatches())
+            send(getfutballmatches())
+        
+        if 'good' in data['text'].lower() and 'bot' in data['text'].lower():
             print(getfutballmatches())
             send(getfutballmatches())
 
