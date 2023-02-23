@@ -82,7 +82,7 @@ def home_and_away(list):
             print(item)
             gametime=i.index(item)
             print(type(item))
-            gametime=re.sub(r'<.*?>', '', item)
+            i[gametime]=re.sub(r'<.*?>', '', item)
 
 # %%
 def choose_date():
