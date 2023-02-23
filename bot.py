@@ -284,7 +284,7 @@ def receive():
     print(data)
 
     # Prevent self-reply
-    if data['sender_type'] != 'bot' and data['text'].lower.startswith('!'):
+    if data['sender_type'] != 'bot' and data['text'].startswith('!'):
         if data['text'].startswith('!futbotping'):
             message=data['name'] + ' pinged me!'
             send(message)
