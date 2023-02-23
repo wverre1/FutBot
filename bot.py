@@ -284,14 +284,12 @@ def receive():
     print(data)
 
     # Prevent self-reply
-    if data['sender_type'] != 'bot':
-        if data['text'].startswith('/ping'):
+    if data['sender_type'] != 'bot' and data['text'].lower.startswith('!'):
+        if data['text'].startswith('!futbotping'):
             message=data['name'] + ' pinged me!'
-            print(message)
             send(message)
         
-        if '/futball' in data['text'] and 'match' in data['text']:
-            message=data['name'] + ' pinged me!'
+        if 'match' in data['text'].lower and 'day' in data['text'].lower:
             print(getfutballmatches())
             send(getfutballmatches())
 
