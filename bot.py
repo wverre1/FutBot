@@ -91,7 +91,7 @@ def choose_date():
     while print_once:
 
         print(' ')
-		ET = pytz.timezone('US/Eastern')
+	ET = pytz.timezone('US/Eastern')
         date_to_look = mytime.now(ET).strftime("%Y-%m-%d")
 
         match = re.match("[0-9]{4}-[0-9]{2}-[0-9]{2}", date_to_look)
