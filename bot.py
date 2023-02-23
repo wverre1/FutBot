@@ -72,12 +72,17 @@ def home_and_away(list):
     """
     
     for i in list:
-        while '' in i:
-            swap_positions(i, i.index(''), i.index('') - 2)
-            blank = i.index('')
-            blank_2 = i.index('') + 2
+        while ')' in i:
+            swap_positions(i, i.index(')'), i.index(')') - 2)
+            blank = i.index(')')
+            blank_2 = i.index(')') + 2
             i[blank] = '(H)'
             i.insert(blank_2, '(A)')
+        for item in i:
+            print(item)
+            gametime=i.index(item)
+            print(type(item))
+            gametime=re.sub(r'<.*?>', '', item)
 
 # %%
 def choose_date():
