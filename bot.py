@@ -293,9 +293,8 @@ def receive():
             print(getfutballmatches())
             send(getfutballmatches())
         
-        if 'good' in data['text'].lower() and 'bot' in data['text'].lower():
-            print(getfutballmatches())
-            send(getfutballmatches())
+    if 'good' in data['text'].lower() and 'bot' in data['text'].lower():
+        send("My pleasure, sir.")
 
     return 'ok', 200
 
